@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>charity: water — Student Landing Page</title>
 
-  <!-- Typography: Montserrat (Proxima Nova look-alike) -->
+  <!-- Typography: Montserrat (free Proxima Nova alternative) -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -49,8 +49,8 @@
     .split{ grid-template-columns: 1fr; }
     @media (min-width: 760px){ .split{ grid-template-columns: 1fr 1fr; align-items: start; } }
 
+    /* Accessibility + motion */
     :focus-visible{ outline: 3px solid #005fcc; outline-offset: 2px; }
-
     @media (prefers-reduced-motion: reduce){
       *{ transition: none !important; animation: none !important; }
     }
@@ -62,7 +62,6 @@
       background: var(--yellow); border:2px solid var(--black);
       display:inline-block; margin:.5rem;
     }
-
     header{
       position: sticky; top: 0; z-index: 10;
       background: var(--white);
@@ -87,7 +86,7 @@
       .hero-grid{ grid-template-columns: 1.1fr .9fr; align-items: center; }
     }
     .eyebrow{ text-transform: uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:800; }
-    h1{ font-family: 'Montserrat', Arial, sans-serif; font-size: var(--h1); margin:.25rem 0 .7rem; }
+    h1{ font-family: 'Montserrat', Arial, sans-serif; font-size: var(--h1); margin:.25rem 0 .7rem; line-height:1.06; }
     .hero p{ font-size: clamp(1rem, 1.6vw, 1.125rem); max-width: 60ch; }
     .hero-actions{ display:flex; gap:.8rem; flex-wrap: wrap; margin-top: 1rem; }
 
@@ -166,6 +165,9 @@
       <figure class="hero-figure">
         <img src="img/hero.jpg" alt="A man fills a glass with clean water from a faucet, showing dignity and the impact of access to safe water.">
       </figure>
+    </div>
+    <div class="container">
+      <p class="hero-caption">Replace the hero image by uploading <code>/img/hero.jpg</code> to your repo.</p>
     </div>
   </section>
 
