@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Charity: Water — Student Landing Page</title>
 
-  <!-- Typography: Montserrat (Proxima Nova look-alike) -->
+  <!-- Typography -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -14,16 +14,11 @@
       --black:#000000;
       --white:#FFFFFF;
       --gray-900:#111111;
-      --gray-700:#3b3b3b;
-      --gray-600:#666666;
       --gray-200:#EFEFEF;
       --h1: clamp(2.4rem, 5vw, 3.6rem);
       --h2: clamp(1.6rem, 3.2vw, 2.2rem);
-      --body: 1rem;
-      --radius-lg: 20px;
-      --shadow-strong: 8px 8px 0 var(--black);
     }
-    * { box-sizing: border-box; }
+
     body{
       margin:0;
       font-family: 'Montserrat', Arial, sans-serif;
@@ -31,26 +26,20 @@
       background: var(--white);
       line-height: 1.6;
     }
-    img{ max-width:100%; display:block; height:auto; }
-    a{ color: inherit; text-decoration: none; }
-    .container{ width: min(1120px, 92%); margin-inline: auto; }
-    .section{ padding: clamp(2.5rem, 6vw, 5.5rem) 0; }
-    .grid{ display: grid; gap: 1.25rem; }
-    .split{ grid-template-columns: 1fr; }
-    @media (min-width: 760px){ .split{ grid-template-columns: 1fr 1fr; align-items: start; } }
 
+    /* Header */
     header{
       position: sticky; top: 0; z-index: 10;
       background: var(--white);
       border-bottom: 1px solid var(--gray-200);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:.75rem;
+      display:flex; align-items:center; justify-content:space-between;
       padding: .9rem 0; flex-wrap: wrap;
     }
     .brand{
-      font-weight: 800;
-      font-size: 3rem; /* bumped up ~3x */
+      font-weight: 900;
+      font-size: 3rem;   /* Enlarged brand text */
       color: var(--black);
       text-decoration: none;
     }
@@ -58,49 +47,53 @@
       background: var(--yellow); color: var(--black); font-weight:800;
       padding:.6rem 1rem; border-radius: 999px; border:2px solid var(--black);
       transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 2px 0 rgba(0,0,0,.25);
     }
     .cta-link:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
 
-    .hero{ background: var(--yellow); border-bottom: 2px solid var(--black); }
-    .hero-grid{ display:grid; gap: clamp(1rem, 3vw, 2rem); grid-template-columns: 1fr; }
-    @media (min-width: 760px){
-      .hero-grid{ grid-template-columns: 1.1fr .9fr; align-items: center; }
-    }
+    /* Hero */
+    .hero{ background: var(--yellow); border-bottom: 2px solid var(--black); padding:2rem 0; }
+    .hero-grid{ display:grid; gap:2rem; }
+    @media (min-width: 760px){ .hero-grid{ grid-template-columns: 1.1fr .9fr; align-items:center; } }
     .eyebrow{ text-transform: uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:800; }
     h1{ font-size: var(--h1); margin:.25rem 0 .7rem; }
     .hero p{ font-size: clamp(1rem, 1.6vw, 1.125rem); max-width: 60ch; }
-    .hero-actions{ display:flex; gap:.8rem; flex-wrap: wrap; margin-top: 1rem; }
+
+    .hero-figure{ border:3px solid var(--black); border-radius:20px; overflow:hidden; }
+    .hero-figure img{ display:block; width:100%; height:auto; }
+
     .btn{
       display:inline-block; font-weight:800; padding: 1rem 1.15rem;
       border:2px solid var(--black); border-radius: 14px;
       background: var(--black); color: var(--white);
       transition: transform .15s ease, box-shadow .15s ease;
-      box-shadow: 0 2px 0 rgba(0,0,0,.25);
     }
     .btn:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
     .btn.secondary{ background: var(--white); color: var(--black); }
     .btn.secondary:hover{ background: #fffbe6; }
 
-    .hero-figure{ border:3px solid var(--black); border-radius: var(--radius-lg); box-shadow: var(--shadow-strong); overflow: hidden; }
-    .hero-caption{ font-size:.85rem; color: var(--gray-700); margin-top:.5rem; }
+    /* Cards */
+    .section{ padding: 3rem 0; }
+    .grid{ display:grid; gap:1.5rem; }
+    .split{ grid-template-columns: 1fr; }
+    @media (min-width:760px){ .split{ grid-template-columns:1fr 1fr; } }
 
-    .card{
-      background: var(--white); border:2px solid var(--black);
-      border-radius: var(--radius-lg); padding: clamp(1.1rem, 3vw, 1.6rem);
-      box-shadow: var(--shadow-strong);
-    }
+    .card{ background:#fff; border:2px solid var(--black); border-radius:20px; padding:1.5rem; }
     .section h2{ font-size: var(--h2); margin:0 0 .5rem; }
-    .section p{ margin:.25rem 0 1rem; max-width: 65ch; }
 
-    .proof{ background: #fafafa; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); }
-    .pill{ display:inline-block; padding:.35rem .6rem; border-radius:999px; border:1px solid var(--black); background: var(--white); font-size:.82rem; }
-    .kpis{ display:grid; gap:1rem; grid-template-columns: repeat(2, 1fr); margin-top: 1rem; }
-    @media (min-width: 760px){ .kpis{ grid-template-columns: repeat(4, 1fr); } }
-    .kpi{ background: var(--white); border:1px solid var(--gray-200); border-radius:14px; padding:1rem; text-align:center; }
+    .icons{ display:grid; gap:.75rem; grid-template-columns: repeat(3,1fr); }
+    @media(max-width:560px){ .icons{ grid-template-columns:1fr; } }
+    .icon{ background:#fffef6; border:1px dashed var(--black); border-radius:14px; padding:.7rem; text-align:center; }
+
+    /* Transparency section */
+    .proof{ background:#fafafa; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); }
+    .pill{ display:inline-block; padding:.35rem .6rem; border-radius:999px; border:1px solid var(--black); background:#fff; font-size:.82rem; }
+    .kpis{ display:grid; gap:1rem; grid-template-columns: repeat(2,1fr); margin-top:1rem; }
+    @media(min-width:760px){ .kpis{ grid-template-columns: repeat(4,1fr); } }
+    .kpi{ background:#fff; border:1px solid var(--gray-200); border-radius:14px; padding:1rem; text-align:center; }
     .kpi strong{ display:block; font-size:1.35rem; }
 
-    .cta{ background: var(--black); color: var(--white); text-align:center; border-top: 2px solid var(--black); }
+    /* CTA */
+    .cta{ background: var(--black); color: var(--white); text-align:center; padding:3rem 1rem; }
   </style>
 </head>
 
@@ -129,9 +122,6 @@
         <img src="img/hero.jpg" alt="A man fills a glass with clean water from a faucet.">
       </figure>
     </div>
-    <div class="container">
-      <p class="hero-caption">Replace the hero image by uploading <code>/img/hero.jpg</code> to your repo.</p>
-    </div>
   </section>
 
   <!-- STORY -->
@@ -139,7 +129,7 @@
     <div class="container grid split">
       <article class="card">
         <h2>Why this matters</h2>
-        <p>As a student activist, you want your energy to create real change. Right now, 703 million people live without safe water — a crisis that fuels poverty, keeps kids out of school, and limits opportunity. With charity: water, 100% of what you give or raise goes directly to building sustainable water projects. Unlike other nonprofits, every project is proven with GPS coordinates and photos, so you can see exactly how your activism is transforming lives.</p>
+        <p>As a student activist, you want your energy to create real change. Right now, 703 million people live without safe water — a crisis that fuels poverty, keeps kids out of school, and limits opportunity. With Charity: Water, 100% of what you give or raise goes directly to building sustainable water projects. Every project is proven with GPS coordinates and photos, so you can see exactly how your activism is transforming lives.</p>
       </article>
 
       <aside class="card">
@@ -181,11 +171,9 @@
     </div>
   </section>
 
-  <footer class="section" style="padding:1.2rem 0; border-top:1px solid var(--gray-200);">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
-      <p style="margin:0;">© Charity: Water student initiative</p>
-      <p style="margin:0;"><a href="#home">Back to top</a></p>
-    </div>
+  <footer class="section" style="padding:1.2rem 0; border-top:1px solid var(--gray-200); text-align:center;">
+    <p style="margin:0;">© Charity: Water student initiative</p>
+    <p style="margin:0;"><a href="#home">Back to top</a></p>
   </footer>
 </body>
 </html>
