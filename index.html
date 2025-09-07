@@ -70,3 +70,122 @@
       display:inline-block; font-weight:800; padding: 1rem 1.15rem;
       border:2px solid var(--black); border-radius: 14px;
       background: var(--black); color: var(--white);
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 2px 0 rgba(0,0,0,.25);
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
+    .btn.secondary{ background: var(--white); color: var(--black); }
+    .btn.secondary:hover{ background: #fffbe6; }
+
+    .hero-figure{ border:3px solid var(--black); border-radius: var(--radius-lg); box-shadow: var(--shadow-strong); overflow: hidden; }
+    .hero-caption{ font-size:.85rem; color: var(--gray-700); margin-top:.5rem; }
+
+    .card{
+      background: var(--white); border:2px solid var(--black);
+      border-radius: var(--radius-lg); padding: clamp(1.1rem, 3vw, 1.6rem);
+      box-shadow: var(--shadow-strong);
+    }
+    .section h2{ font-size: var(--h2); margin:0 0 .5rem; }
+    .section p{ margin:.25rem 0 1rem; max-width: 65ch; }
+
+    .proof{ background: #fafafa; border-top:1px solid var(--gray-200); border-bottom:1px solid var(--gray-200); }
+    .pill{ display:inline-block; padding:.35rem .6rem; border-radius:999px; border:1px solid var(--black); background: var(--white); font-size:.82rem; }
+    .kpis{ display:grid; gap:1rem; grid-template-columns: repeat(2, 1fr); margin-top: 1rem; }
+    @media (min-width: 760px){ .kpis{ grid-template-columns: repeat(4, 1fr); } }
+    .kpi{ background: var(--white); border:1px solid var(--gray-200); border-radius:14px; padding:1rem; text-align:center; }
+    .kpi strong{ display:block; font-size:1.35rem; }
+
+    .cta{ background: var(--black); color: var(--white); text-align:center; border-top: 2px solid var(--black); }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#act">Skip to action</a>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Charity_Water_logo.svg" 
+             alt="charity: water logo" height="40">
+      </a>
+      <a class="cta-link" href="#act">Join the movement</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Student Action</div>
+        <h1>Clean Water Can’t Wait — and Neither Can We</h1>
+        <p>703 million people still live without safe water. As a student, you have the power to change that — every dollar you give or raise brings clean water and hope to families in need.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#act">Start a campus fundraiser</a>
+          <a class="btn secondary" href="#story">Why this matters</a>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <img src="img/hero.jpg" alt="A man fills a glass with clean water from a faucet.">
+      </figure>
+    </div>
+    <div class="container">
+      <p class="hero-caption">Replace the hero image by uploading <code>/img/hero.jpg</code> to your repo.</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section" id="story">
+    <div class="container grid split">
+      <article class="card">
+        <h2>Why this matters</h2>
+        <p>As a student activist, you want your energy to create real change. Right now, 703 million people live without clean water — a crisis that fuels poverty, keeps kids out of school, and limits opportunity. With charity: water, 100% of what you give or raise goes directly to building sustainable water projects. Unlike other nonprofits, every project is proven with GPS coordinates and photos, so you can see exactly how your activism is transforming lives.</p>
+      </article>
+
+      <aside class="card">
+        <h2>Your impact</h2>
+        <p>Lead the effort on campus and show results your community can see and share.</p>
+        <div class="icons">
+          <div class="icon"><strong>Health</strong><br>Safer water, fewer illnesses</div>
+          <div class="icon"><strong>Education</strong><br>Kids spend less time collecting water</div>
+          <div class="icon"><strong>Opportunity</strong><br>More time for work and growth</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TRANSPARENCY -->
+  <section class="section proof alt">
+    <div class="container">
+      <span class="pill">Transparency</span>
+      <h2>See where your impact goes</h2>
+      <p>Get project updates with photos and exact locations so you can show your campus the difference their support is making.</p>
+      <div class="kpis">
+        <div class="kpi"><strong>100%</strong>of public donations to projects</div>
+        <div class="kpi"><strong>GPS</strong>verified project locations</div>
+        <div class="kpi"><strong>Photos</strong>from funded projects</div>
+        <div class="kpi"><strong>Reports</strong>you can share on campus</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section cta" id="act">
+    <div class="container">
+      <h2>Ready to lead?</h2>
+      <p>Kick off a fundraiser or pledge your next event to clean water. We’ll help you every step.</p>
+      <p>
+        <a class="btn" href="#">Create a fundraiser</a>
+        <a class="btn secondary" href="#">Get a campus toolkit</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="section" style="padding:1.2rem 0; border-top:1px solid var(--gray-200);">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+      <p style="margin:0;">© charity: water student initiative</p>
+      <p style="margin:0;"><a href="#home">Back to top</a></p>
+    </div>
+  </footer>
+</body>
+</html>
