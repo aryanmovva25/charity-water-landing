@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>charity: water — Student Landing Page</title>
 
-  <!-- Typography (swap if your Canva uses different fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Typography: Montserrat (Proxima Nova look-alike) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* =========================
@@ -33,7 +33,7 @@
     html, body { height: 100%; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: 'Montserrat', Arial, sans-serif;
       color: var(--gray-900);
       background: var(--white);
       line-height: 1.6;
@@ -100,7 +100,7 @@
     }
     .eyebrow{ text-transform: uppercase; letter-spacing:.12em; font-size:.78rem; font-weight:800; }
     h1{
-      font-family: "Playfair Display", Georgia, serif;
+      font-family: 'Montserrat', Arial, sans-serif;
       font-size: var(--h1); line-height: 1.06; letter-spacing: -.3px; margin:.25rem 0 .7rem;
     }
     .hero p{ font-size: clamp(1rem, 1.6vw, 1.125rem); max-width: 60ch; }
@@ -138,7 +138,7 @@
     .card:hover{ transform: translateY(-4px); box-shadow: 10px 12px 0 var(--black); }
 
     .section h2{
-      font-family: "Playfair Display", Georgia, serif;
+      font-family: 'Montserrat', Arial, sans-serif;
       font-size: var(--h2); line-height:1.15; margin:0 0 .5rem;
     }
     .section p{ margin:.25rem 0 1rem; max-width: 65ch; }
@@ -180,7 +180,6 @@
 
   <header>
     <div class="container nav" role="navigation" aria-label="Main">
-      <!-- If you have a logo, replace the brand-mark span with <img src="img/logo.png" alt="charity: water" height="34"> -->
       <a class="brand" href="#home">
         <span class="brand-mark" aria-hidden="true">cw</span>
         <span>charity: water</span>
@@ -254,7 +253,6 @@
       <h2>Ready to lead?</h2>
       <p>Kick off a fundraiser or pledge your next event to clean water. We’ll help you every step.</p>
       <p>
-        <!-- Replace '#' with your real URLs when you have them -->
         <a class="btn" href="#">Create a fundraiser</a>
         <a class="btn secondary" href="#">Get a campus toolkit</a>
       </p>
@@ -269,4 +267,3 @@
   </footer>
 </body>
 </html>
-
