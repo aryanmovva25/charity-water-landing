@@ -71,31 +71,35 @@
 
     /* Hero */
     .hero {
-      padding-top: 24px;  /* reduced from 64px */
-      padding-bottom: 64px;
+      padding-top: 10px;  /* almost flush under the header */
+      padding-bottom: 50px;
     }
     .hero-grid {
-      display: grid; gap: 40px;
+      display: grid; gap: 20px;
       grid-template-columns: 1fr;
     }
     @media (min-width: 900px) {
       .hero-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
     }
+    .hero-text {
+      margin-left: 60px; /* ≈ 1 inch indent */
+    }
     .hero h1 {
       font-size: clamp(32px, 4.2vw + 10px, 56px);
       line-height: 1.2;
-      margin: 12px 0 20px;
+      margin: 6px 0 10px; /* tighten space */
     }
     .hero .lead {
-      margin-bottom: 24px;
-      line-height: 1.7;
+      margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.6;
     }
     .hero .actions {
       display: flex; gap: 16px; flex-wrap: wrap;
-      margin-top: 12px;
+      margin-top: 8px;
     }
 
-    /* Rest of CSS stays the same... */
+    /* other sections unchanged... */
   </style>
 </head>
 <body>
@@ -117,7 +121,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-text">
         <span class="section-kicker">For Students</span>
         <h1>Clean Water Can’t Wait. Neither Can We.</h1>
         <p class="lead">
@@ -135,6 +139,6 @@
     </div>
   </section>
 
-  <!-- Other sections remain unchanged -->
+  <!-- Other sections stay the same -->
 </body>
 </html>
