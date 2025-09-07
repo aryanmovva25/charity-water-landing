@@ -23,7 +23,7 @@
     body {
       font-family: "Proxima Nova","Nunito Sans","Inter","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
       color: var(--ink);
-      background: var(--paper);
+      background: var(--brand); /* yellow background */
       line-height: 1.6;
     }
     img { max-width: 100%; display: block; border-radius: 12px; }
@@ -34,7 +34,7 @@
     header {
       position: sticky; top: 0; z-index: 40;
       backdrop-filter: saturate(1.1) blur(6px);
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.88);
       border-bottom: 1px solid #e5e7eb;
     }
     .nav {
@@ -44,7 +44,7 @@
     .brand {
       font-weight: 800;
       letter-spacing: .2px;
-      font-size: clamp(28px, 3.6vw + 8px, 46px); /* larger */
+      font-size: clamp(28px, 3.6vw + 8px, 46px);
       line-height: 1;
     }
     .nav-links { display: none; gap: 20px; font-weight: 600; color: var(--muted); }
@@ -53,11 +53,11 @@
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 12px 18px; border-radius: 999px; font-weight: 700; border: 2px solid var(--ink);
-      background: var(--brand);
+      background: var(--paper);
       transition: transform .06s ease-in-out;
     }
     .btn:hover { transform: translateY(-1px); }
-    .btn.outline { background: transparent; border-color: #cbd5e1; }
+    .btn.outline { background: transparent; border-color: #0b0b0b; }
 
     /* Sections */
     section { padding: 56px 0; }
@@ -66,83 +66,68 @@
       line-height: 1.2; margin: 0 0 14px;
     }
     .section-kicker {
-      display: inline-block; background: var(--brand);
+      display: inline-block; background: var(--paper);
       padding: 4px 10px; border-radius: 999px; font-size: 14px; font-weight: 800;
       letter-spacing: .3px; margin-bottom: 10px;
+      border: 2px solid var(--ink);
     }
-    .lead { color: var(--muted); font-size: 18px; }
+    .lead { color: #1f2937; font-size: 18px; }
 
     /* Hero */
-    .hero { padding: 64px 0; }
+    .hero { padding: 40px 0; }
     .hero-grid {
       display: grid; gap: 28px;
       grid-template-columns: 1fr;
     }
     @media (min-width: 900px) {
-      .hero-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }
+      .hero-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
     }
     .hero h1 {
       font-size: clamp(28px, 4.2vw + 10px, 56px);
-      line-height: 1.1; margin: 6px 0 12px;
+      line-height: 1.1; margin: 8px 0 12px;
     }
-    .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
 
-    /* Why This Matters cards */
-    .cards {
-      display: grid; gap: 16px;
-      grid-template-columns: 1fr;
-    }
+    /* Cards */
+    .cards { display: grid; gap: 16px; grid-template-columns: 1fr; }
     @media (min-width: 800px) { .cards { grid-template-columns: repeat(4, 1fr); } }
     .card {
       padding: 18px; border: 1px solid #e5e7eb; border-radius: var(--radius);
       background: #fff;
     }
-    .card .dot {
-      width: 20px; height: 20px; border-radius: 999px; background: var(--brand);
-      border: 2px solid #0f172a; margin-bottom: 10px;
-    }
+    .card .dot { width: 20px; height: 20px; border-radius: 999px; background: var(--brand);
+      border: 2px solid #0f172a; margin-bottom: 10px; }
     .card h3 { margin: 0 0 6px; font-size: 18px; }
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
 
-    /* Story split */
-    .split {
-      display: grid; gap: 24px; grid-template-columns: 1fr;
-    }
+    /* Split */
+    .split { display: grid; gap: 24px; grid-template-columns: 1fr; }
     @media (min-width: 900px) { .split { grid-template-columns: 1.1fr .9fr; } }
     .prose p { margin: 0 0 12px; }
 
-    /* Impact counters */
-    .impact {
-      display: grid; gap: 16px; grid-template-columns: 1fr 1fr;
-    }
+    /* Impact */
+    .impact { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
     @media (min-width: 800px) { .impact { grid-template-columns: repeat(4, 1fr); } }
-    .stat {
-      text-align: center; border: 1px solid #e5e7eb; border-radius: var(--radius);
-      padding: 22px;
-    }
+    .stat { text-align: center; border: 1px solid #e5e7eb; border-radius: var(--radius);
+      padding: 22px; background: #fff; }
     .stat .num { font-size: clamp(26px, 3.2vw + 10px, 40px); font-weight: 800; }
     .stat .label { color: var(--muted); font-size: 14px; }
 
-    /* Dark CTA band */
-    .band {
-      background: var(--card); color: var(--card-ink);
-      border-radius: 22px; padding: 28px;
-      display: grid; gap: 16px; grid-template-columns: 1fr;
-    }
+    /* Band */
+    .band { background: var(--card); color: var(--card-ink);
+      border-radius: 22px; padding: 28px; display: grid; gap: 16px; grid-template-columns: 1fr; }
     @media (min-width: 900px) { .band { grid-template-columns: 2fr 1fr; align-items: center; } }
-    .band .btn { border-color: #0f172a; }
+    .band .btn { background: var(--brand); border-color: #0f172a; }
 
     /* FAQ */
     .faq { display: grid; gap: 14px; }
-    details {
-      border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 14px 16px; background: #fff;
-    }
+    details { border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 14px 16px; background: #fff; }
     summary { cursor: pointer; font-weight: 700; outline: none; list-style: none; }
     summary::-webkit-details-marker { display: none; }
     details p { margin: 8px 0 0; color: var(--muted); }
 
     /* Footer */
-    footer { padding: 32px 0; border-top: 1px solid #e5e7eb; color: var(--muted); }
+    footer { padding: 32px 0; border-top: 1px solid #e5e7eb; color: var(--muted); background: #fff; }
     .foot { display: grid; gap: 12px; grid-template-columns: 1fr; }
     @media (min-width: 700px) { .foot { grid-template-columns: 1fr auto; align-items: center; } }
     .links { display: flex; gap: 16px; flex-wrap: wrap; }
@@ -180,8 +165,8 @@
         </div>
       </div>
       <div>
-        <!-- Updated hero image -->
-        <img src="img/hero.jpeg" alt="Clean water pouring into a glass from a faucet" />
+        <!-- ✅ now matches your filename -->
+        <img src="img/hero.jpg" alt="Clean water pouring into a glass from a faucet" />
       </div>
     </div>
   </section>
@@ -221,7 +206,6 @@
   <section id="story">
     <div class="container split">
       <div>
-        <!-- Story placeholder (add your own later) -->
         <img src="img/story.jpg" alt="Community water project in progress" />
       </div>
       <div class="prose">
