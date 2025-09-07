@@ -23,7 +23,7 @@
     body {
       font-family: "Proxima Nova","Nunito Sans","Inter","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
       color: var(--ink);
-      background: var(--brand); /* yellow background */
+      background: var(--paper); /* ✅ white background everywhere */
       line-height: 1.6;
     }
     img { max-width: 100%; display: block; border-radius: 12px; }
@@ -34,7 +34,7 @@
     header {
       position: sticky; top: 0; z-index: 40;
       backdrop-filter: saturate(1.1) blur(6px);
-      background: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.95);
       border-bottom: 1px solid #e5e7eb;
     }
     .nav {
@@ -53,7 +53,7 @@
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 12px 18px; border-radius: 999px; font-weight: 700; border: 2px solid var(--ink);
-      background: var(--paper);
+      background: var(--brand);
       transition: transform .06s ease-in-out;
     }
     .btn:hover { transform: translateY(-1px); }
@@ -66,21 +66,23 @@
       line-height: 1.2; margin: 0 0 14px;
     }
     .section-kicker {
-      display: inline-block; background: var(--paper);
+      display: inline-block; background: var(--brand);
       padding: 4px 10px; border-radius: 999px; font-size: 14px; font-weight: 800;
       letter-spacing: .3px; margin-bottom: 10px;
-      border: 2px solid var(--ink);
     }
     .lead { color: #1f2937; font-size: 18px; }
 
     /* Hero */
-    .hero { padding: 40px 0; }
+    .hero {
+      background: var(--brand); /* ✅ yellow only here */
+      padding: 60px 0;
+    }
     .hero-grid {
       display: grid; gap: 28px;
       grid-template-columns: 1fr;
     }
     @media (min-width: 900px) {
-      .hero-grid { grid-template-columns: 1.1fr .9fr; align-items: start; }
+      .hero-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }
     }
     .hero h1 {
       font-size: clamp(28px, 4.2vw + 10px, 56px);
@@ -107,13 +109,13 @@
 
     /* Impact */
     .impact { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
-    @media (min-width: 800px) { .impact { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 800px) { .impact { grid-template-columns: repeat(4,1fr); } }
     .stat { text-align: center; border: 1px solid #e5e7eb; border-radius: var(--radius);
       padding: 22px; background: #fff; }
     .stat .num { font-size: clamp(26px, 3.2vw + 10px, 40px); font-weight: 800; }
     .stat .label { color: var(--muted); font-size: 14px; }
 
-    /* Band */
+    /* CTA Band */
     .band { background: var(--card); color: var(--card-ink);
       border-radius: 22px; padding: 28px; display: grid; gap: 16px; grid-template-columns: 1fr; }
     @media (min-width: 900px) { .band { grid-template-columns: 2fr 1fr; align-items: center; } }
@@ -165,7 +167,6 @@
         </div>
       </div>
       <div>
-        <!-- Hero image -->
         <img src="img/hero.jpg" alt="Clean water pouring into a glass from a faucet" />
       </div>
     </div>
@@ -206,7 +207,6 @@
   <section id="story">
     <div class="container split">
       <div>
-        <!-- ✅ Updated to use community.jpg.png -->
         <img src="img/community.jpg.png" alt="Community water project in progress" />
       </div>
       <div class="prose">
