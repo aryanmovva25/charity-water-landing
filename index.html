@@ -15,127 +15,173 @@
 
   <style>
     :root{
-      --brand: #FBE122;   /* charity: water yellow */
-      --ink: #0b0b0b;     /* near-black */
-      --muted: #4b5563;   /* slate-ish */
-      --paper: #ffffff;
-      --card: #0f172a;    /* dark band */
-      --card-ink: #ffffff;
-      --radius: 16px;
-      --maxw: 1100px;
+      --brand:#FBE122;        /* Charity: water yellow */
+      --ink:#0b0b0b;          /* near-black */
+      --muted:#4b5563;        /* slate */
+      --paper:#ffffff;        /* white */
+      --card:#0f172a;         /* dark band */
+      --card-ink:#ffffff;
+      --radius:16px;
+      --radius-lg:22px;
+      --maxw:1100px;
+      --space-1:8px;
+      --space-2:12px;
+      --space-3:16px;
+      --space-4:20px;
+      --space-5:28px;
+      --space-6:36px;
+      --shadow-1:0 6px 14px rgba(0,0,0,.08);
+      --shadow-2:0 12px 24px rgba(0,0,0,.10);
+      --btn-h:48px;
     }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font-family: "Proxima Nova","Nunito Sans","Inter","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
-      color: var(--ink);
-      background: var(--paper); /* white background sitewide */
-      line-height: 1.6;
+    * { box-sizing:border-box }
+    html,body{ margin:0; padding:0 }
+    body{
+      font-family:"Proxima Nova","Nunito Sans","Inter","Helvetica Neue",Arial,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    img { max-width: 100%; display: block; border-radius: 16px; }
-    a { color: inherit; text-decoration: none; }
-    .container { width: 100%; max-width: var(--maxw); padding: 0 20px; margin: 0 auto; }
+
+    img{ max-width:100%; display:block; border-radius:16px; transition:transform .25s ease, box-shadow .25s ease }
+    a{ color:inherit; text-decoration:none }
+    .container{ width:100%; max-width:var(--maxw); padding:0 var(--space-4); margin:0 auto }
 
     /* Header */
-    header {
-      position: sticky; top: 0; z-index: 40;
-      backdrop-filter: saturate(1.1) blur(6px);
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid #e5e7eb;
+    header{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter:saturate(1.1) blur(6px);
+      background:rgba(255,255,255,.95);
+      border-bottom:1px solid #e5e7eb;
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 76px; }
-    .brand { font-weight: 800; letter-spacing: .2px; font-size: clamp(28px, 3.6vw + 8px, 46px); line-height: 1; }
-    .nav-links { display: none; gap: 20px; font-weight: 600; color: var(--muted); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; height:76px }
+    .brand{ font-weight:800; letter-spacing:.2px; font-size:clamp(28px,3.6vw + 8px,46px); line-height:1 }
+    .nav-links{ display:none; gap:20px; font-weight:600; color:var(--muted) }
 
     /* Buttons */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 12px 18px; border-radius: 999px; font-weight: 700; border: 2px solid var(--ink);
-      background: var(--brand); transition: transform .06s ease-in-out;
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:var(--btn-h); padding:0 22px; border-radius:999px; font-weight:800;
+      border:2px solid var(--ink); background:var(--brand);
+      transition:transform .15s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+      box-shadow:var(--shadow-1);
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.outline { background: transparent; border-color: #0b0b0b; }
+    .btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow-2) }
+    .btn:active{ transform:translateY(0) }
+    .btn:focus-visible{ outline:3px solid #111; outline-offset:2px }
+    .btn.outline{ background:transparent; border-color:#0b0b0b }
+    .btn.block{ width:100% }
 
-    /* Sections */
-    section { padding: 56px 0; }
-    .section-title { font-size: clamp(22px, 2.4vw + 8px, 36px); line-height: 1.2; margin: 0 0 14px; }
-    .section-kicker {
-      display: inline-block; background: var(--brand);
-      padding: 4px 10px; border-radius: 999px; font-size: 14px; font-weight: 800;
-      letter-spacing: .3px; margin-bottom: 10px;
+    /* Global sections */
+    section{ padding: clamp(44px, 6vw, 72px) 0 }
+    .section-title{ font-size:clamp(22px, 2.4vw + 8px, 36px); line-height:1.2; margin:0 0 14px }
+    .section-kicker{
+      display:inline-block; background:var(--brand);
+      padding:4px 10px; border-radius:999px; font-size:14px; font-weight:800; letter-spacing:.3px; margin-bottom:10px;
     }
-    .lead { color: #1f2937; font-size: 18px; }
+    .lead{ color:#1f2937; font-size:clamp(16px, 1.2vw + 10px, 18px) }
 
     /* Hero (yellow only here) */
-    .hero { background: var(--brand); padding: 56px 0 48px; }
-    .hero-grid { display: grid; gap: 28px; grid-template-columns: 1fr; }
-    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr .9fr; align-items: center; } }
-    .hero h1 { font-size: clamp(28px, 4.2vw + 10px, 56px); line-height: 1.1; margin: 8px 0 12px; }
-    .hero .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+    .hero{ background:var(--brand); padding: clamp(40px, 6vw, 64px) 0 clamp(28px, 5vw, 56px) }
+    .hero-grid{ display:grid; gap:28px; grid-template-columns:1fr }
+    @media (min-width:900px){ .hero-grid{ grid-template-columns: 1.1fr .9fr; align-items:center } }
 
-    /* Why This Matters cards */
-    .cards { display: grid; gap: 16px; grid-template-columns: 1fr; }
-    @media (min-width: 800px) { .cards { grid-template-columns: repeat(4, 1fr); } }
-    .card { padding: 18px; border: 1px solid #e5e7eb; border-radius: var(--radius); background: #fff; }
-    .card .dot { width: 20px; height: 20px; border-radius: 999px; background: var(--brand); border: 2px solid #0f172a; margin-bottom: 10px; }
-    .card h3 { margin: 0 0 6px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); font-size: 15px; }
+    /* Headline spotlight card to draw attention */
+    .headline-wrap{
+      background:rgba(255,255,255,.88);
+      border:2px solid var(--ink);
+      border-radius:var(--radius-lg);
+      padding: clamp(14px, 2.2vw, 22px);
+      box-shadow:var(--shadow-1);
+      max-width: 700px;
+    }
+    .hero h1{
+      font-size:clamp(32px, 4.8vw + 10px, 64px);
+      line-height:1.05;
+      margin: 8px 0 10px;
+      letter-spacing:-.5px;
+    }
+    .hero .actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px }
+    /* Mobile: make the main CTA full width for clarity */
+    @media (max-width: 520px){
+      .hero .btn:first-child{ width:100% }
+    }
+
+    /* Cards */
+    .cards{ display:grid; gap:16px; grid-template-columns:1fr }
+    @media (min-width:800px){ .cards{ grid-template-columns: repeat(4, 1fr) } }
+    .card{ padding:18px; border:1px solid #e5e7eb; border-radius:var(--radius); background:#fff; transition:transform .2s ease, box-shadow .2s ease }
+    .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-1) }
+    .card .dot{ width:20px; height:20px; border-radius:999px; background:var(--brand); border:2px solid #0f172a; margin-bottom:10px }
+    .card h3{ margin:0 0 6px; font-size:18px }
+    .card p{ margin:0; color:var(--muted); font-size:15px }
 
     /* How it works */
-    .how-grid { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 14px; }
-    @media (min-width: 800px) { .how-grid { grid-template-columns: repeat(3, 1fr); } }
-    .how-card { background:#fff; border:1px solid #e5e7eb; border-radius: var(--radius); padding:18px; }
-    .how-num {
+    .how-grid{ display:grid; gap:16px; grid-template-columns:1fr; margin-top:14px }
+    @media (min-width:800px){ .how-grid{ grid-template-columns: repeat(3, 1fr) } }
+    .how-card{ background:#fff; border:1px solid #e5e7eb; border-radius:var(--radius); padding:18px; transition:transform .2s ease, box-shadow .2s ease }
+    .how-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-1) }
+    .how-num{
       width:36px; height:36px; border-radius:999px; display:flex; align-items:center; justify-content:center;
       font-weight:800; border:2px solid var(--ink); background:var(--brand); margin-bottom:8px;
     }
-    .how-card h3 { margin: 0 0 6px; font-size: 18px; }
-    .how-card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .how-card h3{ margin:0 0 6px; font-size:18px }
+    .how-card p{ margin:0; color:var(--muted); font-size:15px }
 
     /* Story split */
-    .split { display: grid; gap: 24px; grid-template-columns: 1fr; }
-    @media (min-width: 900px) { .split { grid-template-columns: 1.1fr .9fr; } }
-    .prose p { margin: 0 0 12px; }
+    .split{ display:grid; gap:24px; grid-template-columns:1fr }
+    @media (min-width:900px){ .split{ grid-template-columns:1.1fr .9fr } }
+    .prose p{ margin:0 0 12px }
 
     /* Testimonial */
-    .quote {
-      background:#fff; border:1px solid #e5e7eb; border-radius:22px; padding:22px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-    }
-    .quote blockquote { margin:0 0 8px; font-size:clamp(18px, 1.6vw + 10px, 24px); line-height:1.4; font-weight:700; }
-    .quote figcaption { color:var(--muted); font-size:14px; }
+    .quote{ background:#fff; border:1px solid #e5e7eb; border-radius:22px; padding:22px; box-shadow:var(--shadow-1) }
+    .quote blockquote{ margin:0 0 8px; font-size:clamp(18px, 1.6vw + 10px, 24px); line-height:1.4; font-weight:700 }
+    .quote figcaption{ color:var(--muted); font-size:14px }
 
     /* Impact counters */
-    .impact { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
-    @media (min-width: 800px) { .impact { grid-template-columns: repeat(4, 1fr); } }
-    .stat { text-align: center; border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 22px; background: #fff; }
-    .stat .num { font-size: clamp(26px, 3.2vw + 10px, 40px); font-weight: 800; }
-    .stat .label { color: var(--muted); font-size: 14px; }
+    .impact{ display:grid; gap:16px; grid-template-columns:1fr 1fr }
+    @media (min-width:800px){ .impact{ grid-template-columns: repeat(4, 1fr) } }
+    .stat{ text-align:center; border:1px solid #e5e7eb; border-radius:var(--radius); padding:22px; background:#fff; transition:transform .2s ease, box-shadow .2s ease }
+    .stat:hover{ transform:translateY(-3px); box-shadow:var(--shadow-1) }
+    .stat .num{ font-size:clamp(26px, 3.2vw + 10px, 40px); font-weight:800 }
+    .stat .label{ color:var(--muted); font-size:14px }
 
     /* Logos strip */
-    .logos { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
-    .logos img { height:40px; width:auto; filter: grayscale(100%); opacity:.7; }
-    .logos img:hover { filter:none; opacity:1; }
+    .logos{ display:flex; gap:18px; align-items:center; flex-wrap:wrap }
+    .logos img{ height:40px; width:auto; filter:grayscale(100%); opacity:.75; transition:filter .2s ease, opacity .2s ease, transform .2s ease }
+    .logos img:hover{ filter:none; opacity:1; transform:translateY(-2px) }
 
     /* Dark CTA band */
-    .band { background: var(--card); color: var(--card-ink);
-      border-radius: 22px; padding: 28px; display: grid; gap: 16px; grid-template-columns: 1fr; }
-    @media (min-width: 900px) { .band { grid-template-columns: 2fr 1fr; align-items: center; } }
-    .band .btn { background: var(--brand); border-color: #0f172a; }
+    .band{
+      background:var(--card); color:var(--card-ink);
+      border-radius:22px; padding:28px; display:grid; gap:16px; grid-template-columns:1fr
+    }
+    @media (min-width:900px){ .band{ grid-template-columns:2fr 1fr; align-items:center } }
+    .band .btn{ background:var(--brand); border-color:#0f172a }
 
     /* FAQ */
-    .faq { display: grid; gap: 14px; }
-    details { border: 1px solid #e5e7eb; border-radius: var(--radius); padding: 14px 16px; background: #fff; }
-    summary { cursor: pointer; font-weight: 700; outline: none; list-style: none; }
-    summary::-webkit-details-marker { display: none; }
-    details p { margin: 8px 0 0; color: var(--muted); }
+    .faq{ display:grid; gap:14px }
+    details{ border:1px solid #e5e7eb; border-radius:var(--radius); padding:14px 16px; background:#fff; transition:box-shadow .2s ease }
+    details[open]{ box-shadow:var(--shadow-1) }
+    summary{ cursor:pointer; font-weight:700; outline:none; list-style:none }
+    summary::-webkit-details-marker{ display:none }
+    details p{ margin:8px 0 0; color:var(--muted) }
 
     /* Footer */
-    footer { padding: 32px 0; border-top: 1px solid #e5e7eb; color: var(--muted); background: #fff; }
-    .foot { display: grid; gap: 12px; grid-template-columns: 1fr; }
-    @media (min-width: 700px) { .foot { grid-template-columns: 1fr auto; align-items: center; } }
-    .links { display: flex; gap: 16px; flex-wrap: wrap; }
+    footer{ padding:32px 0; border-top:1px solid #e5e7eb; color:var(--muted); background:#fff }
+    .foot{ display:grid; gap:12px; grid-template-columns:1fr }
+    @media (min-width:700px){ .foot{ grid-template-columns:1fr auto; align-items:center } }
+    .links{ display:flex; gap:16px; flex-wrap:wrap }
+
+    /* Image polish */
+    img:hover{ transform:translateY(-2px); box-shadow:var(--shadow-1) }
+
+    /* Motion accessibility */
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; animation:none !important }
+    }
   </style>
 </head>
 <body>
@@ -159,15 +205,17 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="section-kicker">[Your Campus] for clean water</span>
-        <h1>Clean Water Can’t Wait. Neither Can We.</h1>
-        <p class="lead">
-          Join students at [Your Campus] taking on the global water crisis this semester.
-          Start a simple fundraiser, bring a friend, and make a real impact.
-        </p>
-        <div class="actions">
-          <a class="btn" href="#join">Start a Campus Fundraiser</a>
-          <a class="btn outline" href="#how">How It Works</a>
+        <div class="headline-wrap">
+          <span class="section-kicker">[Your Campus] for clean water</span>
+          <h1>Clean Water Can’t Wait. Neither Can We.</h1>
+          <p class="lead">
+            Join students at [Your Campus] taking on the global water crisis this semester.
+            Start a simple fundraiser, bring a friend, and make a real impact.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#join">Start a Campus Fundraiser</a>
+            <a class="btn outline" href="#how">How It Works</a>
+          </div>
         </div>
       </div>
       <div>
@@ -237,7 +285,7 @@
   <section id="story">
     <div class="container split">
       <div>
-        <!-- Use your uploaded filename here -->
+        <!-- keep your actual filename -->
         <img src="img/community.jpg.png" alt="Community water project in progress" />
       </div>
       <div class="prose">
@@ -314,7 +362,7 @@
         <div>
           <h2 class="section-title" style="color:var(--card-ink); margin:0 0 8px;">Join the movement</h2>
           <p style="margin:0; color:#cbd5e1;">
-            Start a campus fundraiser or join an existing team. We’ll send a simple starter kit.
+            Start a campus fundraiser or join an existing team. We’ll send a starter kit.
           </p>
         </div>
         <div style="justify-self:end;">
